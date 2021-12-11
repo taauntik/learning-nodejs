@@ -1,17 +1,18 @@
-// importing fs module
-const fs = require('fs');
+const School = require('./school');
+const DailyRoutine = require('./dailyroutine');
 
-// To write something in a file
-// fs.writeFileSync('myfile.txt', 'Hello programmers');
+// register a listener for a bell ring event
 
-// To add some text in a file
-// fs.appendFileSync('myfile.txt', ' How are you doing?');
+const school = new School();
+const newDay = new DailyRoutine();
 
-// To read a file
-fs.readFile('myfile.txt', (err, data) => {
-    console.log(data.toString());
+school.on('bellRing', ({ period, text }) => {
+    console.log(`We need to run because ${period} ${text}`);
 });
 
-console.log('hello testing');
+newDay.on('fajr', ({ time }) => {
+    console.log(`it's time to pray it's ${time} time`);
+});
 
-// Sync means synchronous
+school.startPeriod();
+newDay.startWithFajr();
