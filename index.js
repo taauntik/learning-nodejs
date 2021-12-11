@@ -1,16 +1,14 @@
-// importing the path module
-const path = require('path');
+// importing the os module
+const os = require('os');
 
-const myPath = '/home/auntik/programming/github/learning-nodejs/index.js';
+// This is gonna give us the name of my operating system
+console.log(os.platform()); // returning linux
 
-// This is gonna give us the basename of the path
-console.log(path.basename(myPath)); // return index.js
+// This is gonna give us the home directory of my operating system
+console.log(os.homedir()); // return /home/username
 
-// This is gonna give us the full path of the directory
-console.log(path.dirname(myPath)); // return /home/auntik/programming/github/learning-nodejs
+// This is gonna give us how many free memory available
+console.log(os.freemem());
 
-// This is gonna give us the extension name of the path
-console.log(path.extname(myPath)); // return .js
-
-// This is gonna return an object
-console.log(path.parse(myPath)); // return { root, dir, base, ext, name }
+// how many core I have
+console.log(os.cpus()); // return cores
