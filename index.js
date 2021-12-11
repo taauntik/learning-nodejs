@@ -1,14 +1,17 @@
-// importing the os module
-const os = require('os');
+// importing fs module
+const fs = require('fs');
 
-// This is gonna give us the name of my operating system
-console.log(os.platform()); // returning linux
+// To write something in a file
+// fs.writeFileSync('myfile.txt', 'Hello programmers');
 
-// This is gonna give us the home directory of my operating system
-console.log(os.homedir()); // return /home/username
+// To add some text in a file
+// fs.appendFileSync('myfile.txt', ' How are you doing?');
 
-// This is gonna give us how many free memory available
-console.log(os.freemem());
+// To read a file
+fs.readFile('myfile.txt', (err, data) => {
+    console.log(data.toString());
+});
 
-// how many core I have
-console.log(os.cpus()); // return cores
+console.log('hello testing');
+
+// Sync means synchronous
